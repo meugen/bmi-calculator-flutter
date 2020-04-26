@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/set_haracteristic_widget.dart';
 import 'package:flutter/material.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
@@ -13,6 +14,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
 
   double _height = 180.0;
+  int _weight = 60;
+  int _age = 19;
   GenderState _genderState = GenderState.defaultState(
       kActiveCardColor,
       kInactiveCardColor
@@ -120,11 +123,39 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     cardColor: kActiveCardColor,
+                    cardChild: SetCharacteristicWidget(
+                      title: 'WIGHT',
+                      value: _weight,
+                      onIncrease: () {
+                        setState(() {
+                          _weight++;
+                        });
+                      },
+                      onDecrease: () {
+                        setState(() {
+                          _weight--;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     cardColor: kActiveCardColor,
+                    cardChild: SetCharacteristicWidget(
+                      title: 'AGE',
+                      value: _age,
+                      onIncrease: () {
+                        setState(() {
+                          _age++;
+                        });
+                      },
+                      onDecrease: () {
+                        setState(() {
+                          _age--;
+                        });
+                      },
+                    ),
                   ),
                 )
               ],
@@ -141,4 +172,5 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
 
